@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Gruppo', sans-serif;
+	font-weight: 300;
+	background-color: #06060c;
+}
+img {
+	display: block;
+	max-width: 100%;
+}
+/* ======================== */
+.container {
+	max-width: 960px;
+	margin-inline: auto;
+	padding: 50px 15px;
+}
+.title {
+	margin-bottom: 50px;
+}
+.title span {
+	display: block;
+}
+.title .primary {
+	font-size: clamp(26px, 5vw, 52px);
+	text-transform: uppercase;
+	color: #c5c5c5;
+}
+.title .secondary {
+	font-size: clamp(18px, 2.5vw, 20px);
+	font-weight: 400;
+	color: #c5c5c5;
+}
+.gallery-wrapper {
+	display: flex;
+}
+.gallery-item {
+	position: relative;
+	isolation: isolate;
+	display: flex;
+	flex: 1;
+	height: 300px;
+	background-color: #000;
+	padding: 25px;
+	opacity: 1;
+	overflow: hidden;
+	transition: flex 0.5s, opacity 0.25s;
+}
+.gallery-item:hover {
+	opacity: 1;
+	flex: 5;
+}
+.gallery-item:not(:hover) {
+	opacity: 0.75;
+}
+.item-image {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.item-description {
+	font-family: "Orbitron", sans-serif;
+	align-self: flex-end;
+	text-transform: uppercase;
+	color: #06060c;
+}
+.name {
+	font-size: 24px;
+	background-color: #c5c5c5;
+	padding: 10px;
+	transform: translateY(-10px);
+}
+.role {
+	display: inline-block;
+	background-color: #5cdb95;
+	box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+	transform: translateY(10px);
+}
+.name,
+.role {
+	opacity: 0;
+	transition: opacity 0.25s, transform 0.3s;
+	transition-delay: 0.35s;
+}
+.gallery-item:hover .name,
+.gallery-item:hover .role {
+	opacity: 1;
+	transform: translateY(0);
+}
+.gallery-item:not(:hover) .name,
+.gallery-item:not(:hover) .role {
+	transition-delay: 0s;
+}
+@media screen and (max-width: 768px) {
+	.gallery-wrapper {
+		flex-direction: column;
+		height: 100vh;
+	}
+
+	.gallery-item:hover {
+		flex-basis: 100%;
+	}
+}
+
+.gallery-section {
+	display: none;
+	justify-content: center;
+}
+
+  .image-container {
+	width: 800px; /* Set the desired width for cropped images */
+	height: 600px; /* Set the desired height for cropped images */
+	overflow: hidden;
+  }
+
+  .image-container img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* This will crop and scale the image to fit the container */
+  }
